@@ -2,7 +2,7 @@
 /* form starting stylings ------------------------------- */
 
 body{
-  background-color:#fefefe !important;
+  background-color:#fdfdfd !important;
  
 }
 .group 			  { 
@@ -101,6 +101,8 @@ input:focus ~ .highlight {
 
 .login-container{
     margin: 15%;
+    margin-top: 30%;
+    margin-right: 18%;
 }
 .btn-loging{
     background-color: transparent;
@@ -110,6 +112,8 @@ input:focus ~ .highlight {
     color:red;
     margin-left: auto;
     margin-right: auto;
+    font-family: fantasy;
+    font-size: 14px;
 }
 
 nav{
@@ -139,7 +143,7 @@ footer{
     top: 100%;
 }
 *{
-  font-family: 'fantasy' !important; 
+  
 }
 
 .input-red{

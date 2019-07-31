@@ -1,32 +1,38 @@
 
 <div class="row">
 
-  <div class="col-md-8">
+  <div class="col-md-7">
       <img src="/assets/images/left.PNG" alt="image" />
   </div>
 
   <div class="col-md-4">
     <div class="login-container">
       <form [formGroup]="loginForm" (ngSubmit)="authenticateUser(loginForm.value)">
-
+          <h4>LOG IN</h4>
         <div [class]="alert.className" *ngIf="alert.isVisible">
             {{alert.message}}
         </div>
         <div class="form-group">
-          <label>Enter email</label>
-          <input type="text" [ngClass]="{
-            'input-red': loginForm.controls.email.invalid,
+         
+          <input type="text" placeholder="Enter email and phone number" [ngClass]="{
+            'input-red': loginForm.controls.email.invalid && loginForm.controls.email.touched,
             'input-green': !loginForm.controls.email.invalid 
             }" formControlName="email">
-          <pre class='text-warning' *ngIf="!loginForm.controls.email.valid">Invalid</pre>
+          <pre class='text-danger' *ngIf="loginForm.controls.email.touched && loginForm.controls.email.invalid">Please enter email or mobile</pre>
    
         </div>
       <div class="form-group">
-        <label>Enter password</label>
-          <input type="password" name="password" formControlName="password" id="">
+       
+          <input type="password" [ngClass]="{
+            'input-red': loginForm.controls.password.invalid && loginForm.controls.password.touched,
+            'input-green': !loginForm.controls.password.invalid 
+            }" placeholder="Enter password" name="password" formControlName="password" id="">
+          <pre class='text-danger' *ngIf="loginForm.controls.password.touched  && loginForm.controls.password.invalid">Please enter password</pre>
       </div>
        
             <input type="submit" value="Logi in" class="btn-loging">
+            <p style="margin-top:10px;"><a href="#">Forgot password?</a></p>
+            <p>Not a member?<a href="$">Sign up</a></p>
       </form>
   
     

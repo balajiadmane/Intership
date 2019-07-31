@@ -21,7 +21,7 @@ export class LoginComponent  implements LoginInterface{
          ])),
           password:new FormControl("", Validators.compose([
             Validators.required,
-            Validators.pattern("/\S+/")
+            Validators.minLength(5)
          ]))
         })
   }
