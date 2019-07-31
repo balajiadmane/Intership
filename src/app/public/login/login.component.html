@@ -12,19 +12,20 @@
         <div [class]="alert.className" *ngIf="alert.isVisible">
             {{alert.message}}
         </div>
-          <div class="group">      
-              <input type="text" name="email" formControlName="email" required>
-              <span class="highlight"></span>
-              <span class="bar"></span>
-              <label>Name</label>
-            </div>
-          
-            <div class="group">      
-              <input type="password" name="password" formConrolName="password"   required>
-              <span class="highlight"></span>
-              <span class="bar"></span>
-              <label>Name</label>
-            </div>
+        <div class="form-group">
+          <label>Enter email</label>
+          <input type="text" [ngClass]="{
+            'input-red': loginForm.controls.email.invalid,
+            'input-green': !loginForm.controls.email.invalid 
+            }" formControlName="email">
+          <pre class='text-warning' *ngIf="!loginForm.controls.email.valid">Invalid</pre>
+   
+        </div>
+      <div class="form-group">
+        <label>Enter password</label>
+          <input type="password" name="password" formControlName="password" id="">
+      </div>
+       
             <input type="submit" value="Logi in" class="btn-loging">
       </form>
   

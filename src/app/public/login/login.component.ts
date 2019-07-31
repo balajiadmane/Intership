@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService,LoginInterface,LoginForm} from '../../service/auth-service.service'
 import {Router} from '@angular/router'
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl,Validators } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,8 +15,14 @@ export class LoginComponent  implements LoginInterface{
     private route:Router
   ) { 
         this.loginForm = new FormGroup({
-          email:new FormControl(),
-          password:new FormControl()
+          email:new FormControl("", Validators.compose([
+            Validators.required,
+            Validators.pattern("[^ @]*@[^ @]*")
+         ])),
+          password:new FormControl("", Validators.compose([
+            Validators.required,
+            Validators.pattern("/\S+/")
+         ]))
         })
   }
 

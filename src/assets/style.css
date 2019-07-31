@@ -141,3 +141,10 @@ footer{
 *{
   font-family: 'fantasy' !important; 
 }
+
+.input-red{
+  border-bottom:1px solid red;
+}
+.input-green{
+  border-bottom:1px solid green;
+}
