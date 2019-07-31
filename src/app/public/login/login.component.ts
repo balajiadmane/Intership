@@ -1,19 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService,LoginInterface,LoginForm} from '../../service/auth-service.service'
 import {Router} from '@angular/router'
+import { FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent  implements LoginInterface{
-
+  private loginForm:FormGroup;
   private alert:AlertMessage = new AlertMessage();
   constructor(
     private auth:AuthService,
     private route:Router
   ) { 
- 
+        this.loginForm = new FormGroup({
+          email:new FormControl(),
+          password:new FormControl()
+        })
   }
 
   ngOnInit() {

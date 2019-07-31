@@ -8,6 +8,7 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import{AuthGuard} from './auth.guard'
+import { ReactiveFormsModule } from '@angular/forms';
 import {AuthService} from './service/auth-service.service';
 import { LogoutComponent } from './public/logout/logout.component'
 @NgModule({
@@ -22,7 +23,8 @@ import { LogoutComponent } from './public/logout/logout.component'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [AuthGuard,AuthService],
   bootstrap: [AppComponent]

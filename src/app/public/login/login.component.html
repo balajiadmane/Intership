@@ -7,20 +7,20 @@
 
   <div class="col-md-4">
     <div class="login-container">
-      <form #loginForm="ngForm" (ngSubmit)="authenticateUser(loginForm.value)">
+      <form [formGroup]="loginForm" (ngSubmit)="authenticateUser(loginForm.value)">
 
         <div [class]="alert.className" *ngIf="alert.isVisible">
             {{alert.message}}
         </div>
           <div class="group">      
-              <input type="email" name="email" ngModel required>
+              <input type="text" name="email" formControlName="email" required>
               <span class="highlight"></span>
               <span class="bar"></span>
               <label>Name</label>
             </div>
           
             <div class="group">      
-              <input type="email" name="password" ngModel  required>
+              <input type="password" name="password" formConrolName="password"   required>
               <span class="highlight"></span>
               <span class="bar"></span>
               <label>Name</label>
