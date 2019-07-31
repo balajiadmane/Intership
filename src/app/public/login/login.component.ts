@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService,LoginInterface,LoginForm} from '../../service/auth-service.service'
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,7 +10,8 @@ export class LoginComponent  implements LoginInterface{
 
   private alert:AlertMessage = new AlertMessage();
   constructor(
-    private auth:AuthService
+    private auth:AuthService,
+    private route:Router
   ) { 
  
   }
@@ -28,10 +30,10 @@ export class LoginComponent  implements LoginInterface{
       }
     if(form.email === "Admin@gmail.com" && form.password === "123456"){
       this.auth.sendToken(form.email)
-    }else{
+      this.route.navigate(['home'])
 
     }
-    // console.log(form)
+    console.log(form)
     // this.auth.authenticateWithAPI(form).subscribe(
     //   (response)=>{
     //       console.log(response)

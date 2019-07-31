@@ -1,7 +1,7 @@
 
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import{HttpClient} from '@angular/common/http'
+import{HttpClient, HttpHeaders} from '@angular/common/http'
 /**
  * Interface
  */
@@ -15,7 +15,7 @@ export class AuthService {
   private api:string= "http://nodejs.hackerkernel.com/scholarsathi/login"
   constructor(
     private myRoute: Router,
-    private _http:HttpClient
+    private http:HttpClient
   ) { }
 
   /**
@@ -24,24 +24,26 @@ export class AuthService {
    * Login with API
    */
   authenticateWithAPI(payload:LoginForm) {
-  //   payload['data']={
-  //       email:payload.email,
-  //       password:payload.password
-  //   }
-  //  return  this._http.post(this.api,payload);
-    return true;
+    let formData = new FormData();
+    formData.append("email",payload.email);
+    formData.append("password",payload.password)
+    console.log(formData)
+    const headers = new HttpHeaders({ 'enctype': 'multipart/form-data' });
+   return  this.http.post(this.api,formData,{ headers: headers });
+   
   }
   sendToken(token: string) {
-    localStorage.setItem("LoggedInUser", token)
+    window.localStorage.setItem("LoggedInUser", token)
   }
 
   getToken() {
-    return localStorage.getItem("LoggedInUser")
+    return window.localStorage.getItem("LoggedInUser")
   }
 
   
   isLoggednIn() {
-    return this.getToken() !== null;
+    console.log(this.getToken())
+    return this.getToken() !== null?true:false;
   }
 
   logout() {

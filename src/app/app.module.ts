@@ -8,13 +8,15 @@ import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import{AuthGuard} from './auth.guard'
-import {AuthService} from './service/auth-service.service'
+import {AuthService} from './service/auth-service.service';
+import { LogoutComponent } from './public/logout/logout.component'
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
