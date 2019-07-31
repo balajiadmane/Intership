@@ -10,6 +10,7 @@ const routes: Routes = [
   {path:"logout",component:LogoutComponent},
   /**
    * private route
+   * lazy loading comp
    */
   {path:"home",loadChildren:'./homepage/homepage.module#HomepageModule',canActivate: [AuthGuard]}
 ];

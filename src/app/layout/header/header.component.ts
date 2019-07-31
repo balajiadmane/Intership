@@ -17,7 +17,11 @@ export class HeaderComponent implements OnInit {
     }
 
   ngOnInit() {
-     
+     if(this.loggedIn){
+       this.route.navigateByUrl("home")
+     }else{
+       this.route.navigateByUrl('login')
+     }
   }
 
   ///
